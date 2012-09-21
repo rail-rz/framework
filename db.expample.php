@@ -6,6 +6,7 @@ $name=array(
     )
 );
 echo$name["a"]["b"];
+
 // ответ, у которого id = 1
 //$answer = db::getInstance()->selectRow('SELECT * FROM answer WHERE id = ?', array(0));
 /**
