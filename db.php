@@ -3,10 +3,7 @@
 class db
 {
     private  static $instance;
-    /**
-     * @static
-     * @return db
-     */
+
     public static function getInstance()
     {
         return self::$instance;
