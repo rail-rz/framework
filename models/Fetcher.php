@@ -8,9 +8,9 @@
  */
 class Fetcher
 {
-    protected function __construct(){}
+    public function __construct(){}
 
-    protected function getDb()
+    public function getDb()
     {
         return Application::getInstance()->getDb();
     }
