@@ -19,7 +19,7 @@ class AnswerFetcher extends Fetcher
         return self::$instance=new self();
     }
 
-    protected function __construct()
+    public  function __construct()
     {
         parent::__construct();
     }
