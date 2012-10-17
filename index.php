@@ -13,11 +13,7 @@ require_once "models/AnswerFetcher.php";
 require_once "models/Fetcher.php";
 require_once "controller/AnswerController.php";
 require_once "controller/ErrorController.php";
-
-$componentManager = new ComponentManager(array('answer' => array('class' => 'AnswerFetcher'),'poll' => array('class' => 'PollFetcher')));
-$answerFetcher = $componentManager->answer;
-var_dump($answerFetcher->getById(1));
-var_dump($answerFetcher->getByPollId(1));
-
 Application::init(array ("db"=>(array("host"=>'localhost',"user"=> 'root',"password"=> '',"base"=> 'poll'))));
 Application::getInstance()->run();
+
+
