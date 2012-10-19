@@ -6,7 +6,7 @@
  * Time: 23:53
  * To change this template use File | Settings | File Templates.
  */
-require_once "models/AnswerFetcher.php";
+//require_once "models/AnswerFetcher.php";
 class AnswerController
 {
     public function  actionIndex()
