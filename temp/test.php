@@ -6,8 +6,11 @@
  * Time: 23:46
  * To change this template use File | Settings | File Templates.
  */
-$config = array('answer' => array('class' => 'AnswerFetcher'));
-$key="answer";
+
+
+//2)работа с массивами,с ключами(проба пера)
+//$config = array('answer' => array('class' => 'AnswerFetcher'));
+//$key="answer";
 //$config=new $config["answer"]["class"]();
 //$obj=ucfirst($key)."Fetcher";
 //$config["answer"]["class"]= new $obj();
@@ -16,11 +19,10 @@ $key="answer";
 //{
 //    echo$key;
 //}
-
 //echo $config["answer"];
 //echo $config["answer"]["class"];
 
-//Регулярные выражения(проба пера)
+//1)Регулярные выражения(проба пера)
 //$param="Privet_Kak_Dela ";
 //$count=0;
 //echo preg_replace ("/_/"," ",$param);
