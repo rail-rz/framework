@@ -5,8 +5,8 @@
  * Date: 21.09.12
  * Time: 21:58
  * To change this template use File | Settings | File Templates.
+ *  @property AnswerFetcher $answer
  */
-
 class ComponentManager
 {
     private $components;
