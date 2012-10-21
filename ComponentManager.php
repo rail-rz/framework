@@ -17,21 +17,26 @@ class ComponentManager
 
     public function __get($name)
     {
-        $component=$this->config[$name]['class'];
-        if (!isset($this->components[$name]))
+        if(isset($this->config[$name]['class']))
         {
-            $this->components[$name] = new $component();
-            return $this->components[$name];
+            $component=$this->config[$name]['class'];
+            if (!isset($this->components[$name]))
+            {
+                $this->components[$name] = new $component();
+                return $this->components[$name];
+            }
+            elseif(isset($this->components[$name]))
+            {
+                return $this->components[$name];
+            }
+            else
+            {
+                throw new Exception('Не получилось создать объект в ComponentManager.php');
+            }
         }
-        elseif(isset($this->components[$name]))
-        {
-            return $this->components[$name];
-        }
-        else
         {
             throw new Exception('Не получилось создать объект в ComponentManager.php');
         }
-
 //      $component=$this->config[$name]["class"];
 //      $component[]=new $component();
 //      return$component;
