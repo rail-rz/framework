@@ -4,7 +4,7 @@
  * User: R2
  * Date: 21.09.12
  * Time: 21:58
- * To change this template use File | Settings | File Templates.
+ *
  *  @property AnswerFetcher $answer
  */
 class ComponentManager
@@ -17,18 +17,23 @@ class ComponentManager
 
     public function __get($name)
     {
+        $component=$this->config[$name]['class'];
         if (!isset($this->components[$name]))
         {
-            $component=$this->config[$name]['class'];
-            $this->components[$name] = new $component();
+                        $this->components[$name] = new $component();
+            return $this->components[$name];
+        }
+        elseif(isset($this->components[$name]))
+        {
+            return $component;
         }
         else
         {
             throw new Exception('Не получилось создать объект в ComponentManager.php');
         }
-        return $this->components[$name];
-//                $component=$this->config[$name]["class"];
-//        $component[]=new $component();
-//        return$component;
+
+//      $component=$this->config[$name]["class"];
+//      $component[]=new $component();
+//      return$component;
     }
 }
