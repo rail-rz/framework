@@ -4,9 +4,9 @@
  * User: R2
  * Date: 10.09.12
  * Time: 17:22
- * To change this template use File | Settings | File Templates.
+ *
  */
-require_once("db.php");
+require_once"db.php";
 class Application
 {
     private $config;
@@ -36,7 +36,10 @@ class Application
             $this->db=new db($this->config["db"]["host"],$this->config["db"]["user"],$this->config["db"]["password"],$this->config["db"]["base"]);
        return $this->db;
     }
-
+/*
+ * Метод run() обрабатывает входные массив с помощью $_GET.
+ * В зависимотсти от того, какое значение пришло перенаправляет на нужную страницу
+ */
     public function run()
     {
         $dir="controller/";
