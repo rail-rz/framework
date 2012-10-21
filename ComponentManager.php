@@ -20,12 +20,12 @@ class ComponentManager
         $component=$this->config[$name]['class'];
         if (!isset($this->components[$name]))
         {
-                        $this->components[$name] = new $component();
+            $this->components[$name] = new $component();
             return $this->components[$name];
         }
         elseif(isset($this->components[$name]))
         {
-            return $component;
+            return $this->components[$name];
         }
         else
         {
