@@ -2,17 +2,16 @@
 //db::init('localhost', 'root', '', 'poll');
 class db
 {
-    private  static $instance;
-
-    public static function getInstance()
-    {
-        return self::$instance;
-    }
-
-    public static function init($host, $user, $password, $base)
-    {
-        self::$instance=new db($host,$user,$password,$base);
-    }
+//    private  static $instance;
+//    public static function getInstance()
+//    {
+//        return self::$instance;
+//    }
+//
+//    public static function init($host, $user, $password, $base)
+//    {
+//        self::$instance=new db($host,$user,$password,$base);
+//    }
 
     public function __construct($host, $user, $password, $base)
     {
