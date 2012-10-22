@@ -25,13 +25,6 @@ class ComponentManager
             {
                 if(!is_null($this->config[$name]['__construct']))
                 {
-//                    foreach($this->config[$name]['__construct'] as $key=>$paramsOfDb)
-//                     $this->components[$name] = new $component($this->config[$name]['__construct'][0],
-//                                                                $this->config[$name]['__construct'][1],
-//                                                                $this->config[$name]['__construct'][2],
-//                                                                $this->config[$name]['__construct'][3]);
-//                    $this->components[$name] = new $component();
-//                    $this->components[$name]->newInstanceArgs($this->config[$name]['__construct'][0]);
                     $class=new ReflectionClass($component);
                     $this->components[$name]=call_user_func_array(array($class,'newInstance'),
                                                                   array($this->config[$name]['__construct'][0],
@@ -58,8 +51,5 @@ class ComponentManager
         {
             throw new Exception('Не получилось создать объект в ComponentManager.php');
         }
-//      $component=$this->config[$name]["class"];
-//      $component[]=new $component();
-//      return$component;
     }
 }
