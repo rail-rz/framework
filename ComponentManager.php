@@ -33,7 +33,11 @@ class ComponentManager
 //                    $this->components[$name] = new $component();
 //                    $this->components[$name]->newInstanceArgs($this->config[$name]['__construct'][0]);
                     $class=new ReflectionClass($component);
-                    $this->components[$name]=call_user_func_array(array($class,'newInstance'),$this->config[$name]['__construct']);
+                    $this->components[$name]=call_user_func_array(array($class,'newInstance'),
+                                                                  array($this->config[$name]['__construct'][0],
+                                                                        $this->config[$name]['__construct'][1],
+                                                                        $this->config[$name]['__construct'][2],
+                                                                        $this->config[$name]['__construct'][3]));
                 }
                 else
                 {
