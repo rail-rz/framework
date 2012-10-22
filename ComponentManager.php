@@ -20,9 +20,21 @@ class ComponentManager
         if(isset($this->config[$name]['class']))
         {
             $component=$this->config[$name]['class'];
+            //echo $component;
             if (!isset($this->components[$name]))
             {
-                $this->components[$name] = new $component();
+                if(!is_null($this->config[$name]['__construct']))
+                {
+                    //foreach($this->config[$name]['__construct'] as $key=>$paramsOfDb)
+                     $this->components[$name] = new $component($this->config[$name]['__construct'][0],
+                                                                $this->config[$name]['__construct'][1],
+                                                                $this->config[$name]['__construct'][2],
+                                                                $this->config[$name]['__construct'][3]);
+                }
+                else
+                {
+                    $this->components[$name] = new $component();
+                }
                 return $this->components[$name];
             }
             elseif(isset($this->components[$name]))
@@ -34,6 +46,7 @@ class ComponentManager
                 throw new Exception('Не получилось создать объект в ComponentManager.php');
             }
         }
+        else
         {
             throw new Exception('Не получилось создать объект в ComponentManager.php');
         }
