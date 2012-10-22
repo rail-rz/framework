@@ -13,7 +13,7 @@ require_once "models/AnswerFetcher.php";
 require_once "models/Fetcher.php";
 require_once "controller/AnswerController.php";
 require_once "controller/ErrorController.php";
-//Application::init(array ("db"=>(array("host"=>'localhost',"user"=> 'root',"password"=> '',"base"=> 'poll'))));
-//Application::getInstance()->run();
+Application::init(array ("db"=>(array("host"=>'localhost',"user"=> 'root',"password"=> '',"base"=> 'poll'))));
+Application::getInstance()->run();
 
 
