@@ -6,7 +6,18 @@
  * Time: 23:46
  * To change this template use File | Settings | File Templates.
  */
-
+//3)работа с массивами(еще раз, старые песни о главном)
+$component=array('db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll'),));
+print_r($component['db']);
+echo$component['db']['class'];
+echo$component['db']['__construct']['0'];
+echo count($component['db']['__construct']);
+//while(count($component['db']['__construct']))
+  //  echo$component['db']['__construct'][$i];
+for($i=0;$i<count($component['db']['__construct']);$i++)
+    echo"<br>".$component['db']['__construct'][$i]."<br>";
+foreach($component['db']['__construct'] as $paramsOfDb)
+    echo$paramsOfDb.",";
 
 //2)работа с массивами,с ключами(проба пера)
 //$config = array('answer' => array('class' => 'AnswerFetcher'));
