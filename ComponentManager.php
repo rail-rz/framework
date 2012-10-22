@@ -17,20 +17,20 @@ class ComponentManager
 
     public function __get($name)
     {
-        if(isset($this->config[$name]['class']))
+        if(isset($this->config['components'][$name]['class']))
         {
-            $component=$this->config[$name]['class'];
+            $component=$this->config['components'][$name]['class'];
             //echo $component;
             if (!isset($this->components[$name]))
             {
-                if(!is_null($this->config[$name]['__construct']))
+                if(!is_null($this->config['components'][$name]['__construct']))
                 {
                     $class=new ReflectionClass($component);
                     $this->components[$name]=call_user_func_array(array($class,'newInstance'),
-                                                                  array($this->config[$name]['__construct'][0],
-                                                                        $this->config[$name]['__construct'][1],
-                                                                        $this->config[$name]['__construct'][2],
-                                                                        $this->config[$name]['__construct'][3]));
+                                                                  array($this->config['components'][$name]['__construct'][0],
+                                                                        $this->config['components'][$name]['__construct'][1],
+                                                                        $this->config['components'][$name]['__construct'][2],
+                                                                        $this->config['components'][$name]['__construct'][3]));
                 }
                 else
                 {
