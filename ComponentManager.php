@@ -23,7 +23,7 @@ class ComponentManager
             //echo $component;
             if (!isset($this->components[$name]))
             {
-                if(!is_null($this->config['components'][$name]['__construct']))
+                if(isset($this->config['components'][$name]['__construct']))
                 {
                     $class=new ReflectionClass($component);
                     $this->components[$name]=call_user_func_array(array($class,'newInstance'),
