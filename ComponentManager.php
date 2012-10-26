@@ -5,6 +5,8 @@
  * Date: 21.09.12
  * Time: 21:58
  *
+ *  @property db $db
+ *  @property ComponentManager $fetcher
  *  @property AnswerFetcher $answer
  */
 class ComponentManager
