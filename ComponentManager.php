@@ -36,7 +36,7 @@ class ComponentManager
                 }
                 else
                 {
-                    $this->components[$name] = new $component();
+                    $this->components[$name] = new $component($this->config);
                 }
                 return $this->components[$name];
             }
@@ -48,6 +48,12 @@ class ComponentManager
             {
                 throw new Exception('Не получилось создать объект в ComponentManager.php');
             }
+        }
+        elseif(isset($this->config['components']['fetcher'][$name]['class']))
+        {
+            $component=$this->config['components']['fetcher'][$name]['class'];
+            $this->components[$name] = new $component();
+            return$this->components[$name];
         }
         else
         {
