@@ -26,13 +26,18 @@ $componentManager = new ComponentManager(array(
     'components' => array(
         'fetcher'=>array(
             'class' => 'ComponentManager',
-            'answer' => array('class' => 'AnswerFetcher'),
-            'poll' => array('class' => 'PollFetcher'),
+            '__construct' => array(array(
+                'components' => array(
+                    'answer' => array('class' => 'AnswerFetcher'),
+                    'poll' => array('class' => 'PollFetcher'),
+                )
+            ))
         ),
+
         'db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll'),),
     )
 ));
 var_dump($componentManager->db->selectAll('SELECT * FROM answer WHERE id = ?', array(1)));
 var_dump($componentManager->fetcher->answer->getById(1));
-
+var_dump($componentManager->fetcher->poll->getById(1));
 
