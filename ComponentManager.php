@@ -5,9 +5,6 @@
  * Date: 21.09.12
  * Time: 21:58
  *
- *  @property db $db
- *  @property ComponentManager $fetcher
- *  @property AnswerFetcher $answer
  */
 class ComponentManager
 {
@@ -22,21 +19,17 @@ class ComponentManager
         if(isset($this->config['components'][$name]['class']))
         {
             $component=$this->config['components'][$name]['class'];
-            //echo $component;
             if (!isset($this->components[$name]))
             {
                 if(isset($this->config['components'][$name]['__construct']))
                 {
                     $class=new ReflectionClass($component);
                     $this->components[$name]=call_user_func_array(array($class,'newInstance'),
-                                                                  array($this->config['components'][$name]['__construct'][0],
-                                                                        $this->config['components'][$name]['__construct'][1],
-                                                                        $this->config['components'][$name]['__construct'][2],
-                                                                        $this->config['components'][$name]['__construct'][3]));
+                                                                  $this->config['components'][$name]['__construct']);
                 }
                 else
                 {
-                    $this->components[$name] = new $component($this->config);
+                    $this->components[$name] = new $component();
                 }
                 return $this->components[$name];
             }
@@ -48,12 +41,6 @@ class ComponentManager
             {
                 throw new Exception('Не получилось создать объект в ComponentManager.php');
             }
-        }
-        elseif(isset($this->config['components']['fetcher'][$name]['class']))
-        {
-            $component=$this->config['components']['fetcher'][$name]['class'];
-            $this->components[$name] = new $component();
-            return$this->components[$name];
         }
         else
         {
