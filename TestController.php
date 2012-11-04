@@ -14,6 +14,7 @@ require_once "models/AnswerFetcher.php";
 require_once "models/Fetcher.php";
 require_once "controller/AnswerController.php";
 require_once "controller/ErrorController.php";
+require_once "doc/FetcherManager.php";
 
 //    $componentManager = new ComponentManager(array('answer' => array('class' => 'AnswerFetcher'),
 //        'poll' => array('class' => 'PollFetcher'),
@@ -21,8 +22,7 @@ require_once "controller/ErrorController.php";
 //    ));
 //
 //var_dump($componentManager->db->selectRow('SELECT * FROM answer WHERE id = ?', array(1)));
-
-$componentManager = new ComponentManager(array(
+$config=array(
     'components' => array(
         'fetcher'=>array(
             'class' => 'ComponentManager',
@@ -36,8 +36,15 @@ $componentManager = new ComponentManager(array(
 
         'db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll'),),
     )
-));
-var_dump($componentManager->db->selectAll('SELECT * FROM answer WHERE id = ?', array(1)));
-var_dump($componentManager->fetcher->answer->getById(1));
-var_dump($componentManager->fetcher->poll->getById(1));
+);
+
+//$componentManager = new ComponentManager($config);
+
+Application::getInstance($config)->fetcher->answer;
+//Application::getInstance($config)->db->selectRow;
+
+
+//var_dump($componentManager->db->selectAll('SELECT * FROM answer WHERE id = ?', array(1)));
+//var_dump($componentManager->fetcher->answer->getById(1));
+//var_dump($componentManager->fetcher->poll->getById(1));
 
