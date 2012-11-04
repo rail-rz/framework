@@ -9,8 +9,10 @@
  */
 class ComponentManager
 {
-    private $components;
-    public function __construct($config)
+    public $components;
+    public $config;
+
+    public  function __construct($config)
     {
         $this->config=$config;
     }
