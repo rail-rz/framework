@@ -6,10 +6,11 @@
  * Time: 17:22
  *
  */
+require_once"ComponentManager.php";
 require_once"db.php";
-class Application
+class Application extends ComponentManager
 {
-    private $config;
+    public $config;
     private $db;
     private  static $instance;
 
@@ -25,17 +26,18 @@ class Application
         self::$instance=new Application($config);
     }
 
-    private function __construct($config)
+    public function __construct($config)
     {
-        $this->config=$config;
+        parent::__construct($config);
+//        $this->config=$config;
     }
 
-    public function getDb()
-    {
-       if(is_null($this->db))
-            $this->db=new db($this->config["db"]["host"],$this->config["db"]["user"],$this->config["db"]["password"],$this->config["db"]["base"]);
-       return $this->db;
-    }
+//    public function getDb()
+//    {
+//       if(is_null($this->db))
+//            $this->db=new db($this->config["db"]["host"],$this->config["db"]["user"],$this->config["db"]["password"],$this->config["db"]["base"]);
+//       return $this->db;
+//    }
 /*
  * Метод run() обрабатывает входные массив с помощью $_GET.
  * В зависимотсти от того, какое значение пришло перенаправляет на нужную страницу
