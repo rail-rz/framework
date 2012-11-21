@@ -12,6 +12,6 @@ class Fetcher
 
     public function getDb()
     {
-        return Application::getInstance()->getDb();
+        return Application::getInstance()->db;
     }
 }
