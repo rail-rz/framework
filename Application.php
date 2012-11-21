@@ -7,11 +7,10 @@
  *
  */
 require_once"ComponentManager.php";
-require_once"db.php";
+//require_once"controller/TestController.php";
+//require_once"db.php";
 class Application extends ComponentManager
 {
-    public $config;
-    private $db;
     private  static $instance;
 
     public static function getInstance()
@@ -29,7 +28,6 @@ class Application extends ComponentManager
     public function __construct($config)
     {
         parent::__construct($config);
-//        $this->config=$config;
     }
 
 //    public function getDb()
