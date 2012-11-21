@@ -9,10 +9,10 @@
  */
 class ComponentManager
 {
-    public $components;
-    public $config;
+    protected $components;
+    private $config;
 
-    public  function __construct($config)
+    public function __construct($config)
     {
         $this->config=$config;
     }
@@ -42,12 +42,12 @@ class ComponentManager
             }
             else
             {
-                throw new Exception('Не получилось создать объект в ComponentManager.php');
+                throw new Exception('невозможно создать класс в  ComponentManager.php');
             }
         }
         else
         {
-            throw new Exception('Не получилось создать объект в ComponentManager.php');
+            throw new Exception('невозможно создать класс в  ComponentManager.php');
         }
     }
 }
