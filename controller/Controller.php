@@ -19,7 +19,7 @@ class Controller
             }
         }
         if(file_exists($view)==true)
-            return $view;
+            require_once "$view";
         else
             throw new Exception('');
     }
