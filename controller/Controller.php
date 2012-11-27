@@ -8,20 +8,22 @@
  */
 class Controller
 {
-    public function render($view,$args=array())
+
+    private $id;
+
+    public function __construct($id)
     {
-        if(isset($args))
-        {
-            foreach($args as $key=>$value)
-            {
-                 ${$key}=$value;
-                $view='views/'.${$key}.'/view.php';
-            }
-        }
-        if(file_exists($view)==true)
-            require_once "$view";
-        else
-            throw new Exception('');
+        $this->id=$id;
     }
 
+    public function render($view,$args=null,$return=false)
+    {
+        if(is_array($args))
+            extract($args,EXTR_PREFIX_SAME,'data');
+        $resultRoot="views/".$this->id."/".$view.".php";
+        if(file_exists($resultRoot))
+            require ($resultRoot);
+        else
+            throw new Exception('no require File');
+    }
 }
