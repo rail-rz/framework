@@ -52,7 +52,7 @@ class Application extends ComponentManager
             if(file_exists($controllerPath))
             {
                 require_once($controllerPath);
-                $controller = new $controllerName();
+                $controller = new $controllerName($matches[1]);
                 $action="action".ucfirst($matches[2]);
                 if(method_exists($controllerName,$action))
                 {
