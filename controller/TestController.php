@@ -1,6 +1,6 @@
 <?php
 /**
- * Тестовая класс для проверки работаспособности программы
+ * Тестовый класс для проверки работаспособности программы
  * User: R2
  * Date: 18.10.12
  * Time: 0:26
@@ -15,6 +15,7 @@ require_once "models/Fetcher.php";
 require_once "controller/AnswerController.php";
 require_once "controller/ErrorController.php";
 require_once "doc/FetcherManager.php";
+require_once "controller/Controller.php";
 
 //    $componentManager = new ComponentManager(array('answer' => array('class' => 'AnswerFetcher'),
 //        'poll' => array('class' => 'PollFetcher'),
@@ -24,23 +25,20 @@ require_once "doc/FetcherManager.php";
 //var_dump($componentManager->db->selectRow('SELECT * FROM answer WHERE id = ?', array(1)));
 
 
-class TestController
+class TestController extends Controller
 {
+    protected  $config;
+
+    public function __construct($config)
+    {
+        //$this->config=$config;\
+        parent::__construct($config);
+    }
 
     public function actionIndex()
     {
-        var_dump(Application::getInstance()->fetcher->answer);
-        var_dump(Application::getInstance()->db->selectRow);
+        echo$this->config;
+        $this->render('index', array('post' => $post));
+
     }
-//$componentManager = new ComponentManager($config);
-
-//Application::getInstance($config)->fetcher->answer;
-//var_dump(Application::getInstance($config)->db->selectRow);
-
-
-//var_dump($componentManager->db->selectAll('SELECT * FROM answer WHERE id = ?', array(1)));
-//var_dump($componentManager->fetcher->answer->getById(1));
-//var_dump($componentManager->fetcher->poll->getById(1));
-
-
 }
