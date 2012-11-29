@@ -6,15 +6,6 @@
  * Time: 0:26
  *
  */
-require_once "index.php";
-require_once "Application.php";
-require_once "ComponentManager.php";
-require_once "db.php";
-require_once "models/AnswerFetcher.php";
-require_once "models/Fetcher.php";
-require_once "controller/AnswerController.php";
-require_once "controller/ErrorController.php";
-require_once "doc/FetcherManager.php";
 require_once "controller/Controller.php";
 
 //    $componentManager = new ComponentManager(array('answer' => array('class' => 'AnswerFetcher'),
@@ -27,18 +18,10 @@ require_once "controller/Controller.php";
 
 class TestController extends Controller
 {
-    protected  $config;
-
-    public function __construct($config)
-    {
-        //$this->config=$config;\
-        parent::__construct($config);
-    }
 
     public function actionIndex()
     {
-        echo$this->config;
-        $this->render('index', array('post' => $post));
+        $this->render('index', array('view' => 'qwe'));
 
     }
 }
