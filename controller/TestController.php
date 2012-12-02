@@ -21,7 +21,7 @@ class TestController extends Controller
 
     public function actionIndex()
     {
-        $this->render('index', array('view' => 'qwe'));
+        $this->render('index', array('post' => $post));
 
     }
 }
