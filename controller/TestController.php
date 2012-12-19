@@ -6,7 +6,7 @@
  * Time: 0:26
  *
  */
-require_once "controller/Controller.php";
+require_once "Controller.php";
 
 //    $componentManager = new ComponentManager(array('answer' => array('class' => 'AnswerFetcher'),
 //        'poll' => array('class' => 'PollFetcher'),
