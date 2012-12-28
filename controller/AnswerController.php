@@ -7,11 +7,32 @@
  * To change this template use File | Settings | File Templates.
  */
 //require_once "models/AnswerFetcher.php";
-class AnswerController
+require_once "Controller.php";
+class AnswerController extends Controller
 {
     public function  actionIndex()
     {
-        var_dump( AnswerFetcher::getInstance()->getById("1"));
-        var_dump( AnswerFetcher::getInstance()->getByPollId("1"));
+//        var_dump( AnswerFetcher::getInstance()->getById("1"));
+//        var_dump( AnswerFetcher::getInstance()->getByPollId("1"));
+        $pollId=$_GET['poll'];
+        if(!isset($pollId))
+        {
+            echo"выводим все варианты голосования";
+        }
+        else
+        {
+            $pollText=AnswerFetcher::getInstance()->getPoll($pollId);
+            if(!isset($pollText['id']))
+            {
+                echo"такого опроса не существует";
+            }
+            else
+            {
+
+                $pollQuestion=AnswerFetcher::getInstance()->getQuestions($pollId);
+                $answer=AnswerFetcher::getInstance()->getByPollId($pollId);
+                $this->render('index', array('pollText'=>$pollText,'pollQuestion'=>$pollQuestion,'answer'=>$answer));
+            }
+        }
     }
 }
