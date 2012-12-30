@@ -36,13 +36,4 @@ class AnswerFetcher extends Fetcher
         return $this->getDb()->selectAll('SELECT * FROM answer WHERE poll_id = ?',array($pollId));
     }
 
-    public function getPoll($id)
-    {
-        return $this->getDb()->selectRow('SELECT * FROM interview WHERE id = ?', array($id));
-    }
-
-    public function getQuestions($pollId)
-    {
-        return $this->getDb()->selectAll('SELECT * FROM poll WHERE poll_id = ?',array($pollId));
-    }
 }
