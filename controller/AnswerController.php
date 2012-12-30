@@ -21,7 +21,7 @@ class AnswerController extends Controller
         }
         else
         {
-            $pollText=AnswerFetcher::getInstance()->getPoll($pollId);
+            $pollText=InterviewFetcher::getInstance()->getById($pollId);
             if(!isset($pollText['id']))
             {
                 echo"такого опроса не существует";
@@ -29,7 +29,7 @@ class AnswerController extends Controller
             else
             {
 
-                $pollQuestion=AnswerFetcher::getInstance()->getQuestions($pollId);
+                $pollQuestion=PollFetcher::getInstance()->getByPollId($pollId);
                 $answer=AnswerFetcher::getInstance()->getByPollId($pollId);
                 $this->render('index', array('pollText'=>$pollText,'pollQuestion'=>$pollQuestion,'answer'=>$answer));
             }
