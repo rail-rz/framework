@@ -2,14 +2,13 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: R2
- * Date: 31.12.12
- * Time: 1:26
+ * Date: 23.12.12
+ * Time: 3:30
  * To change this template use File | Settings | File Templates.
  */
 require_once"Fetcher.php";
-class InterviewFetcher extends Fetcher
+class QuestionsFetcher extends Fetcher
 {
-
     private  static $instance;
 
     public static function getInstance()
@@ -28,11 +27,11 @@ class InterviewFetcher extends Fetcher
 
     public function getById($id)
     {
-        return $this->getDb()->selectRow('SELECT * FROM interview WHERE id = ?', array($id));
+        return $this->getDb()->selectRow('SELECT * FROM questions WHERE id = ?', array($id));
     }
 
     public function getByPollId($pollId)
     {
-        return $this->getDb()->selectAll('SELECT * FROM interview WHERE poll_id = ?',array($pollId));
+        return $this->getDb()->selectAll('SELECT * FROM questions WHERE poll_id = ?',array($pollId));
     }
 }

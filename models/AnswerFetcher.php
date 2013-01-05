@@ -33,7 +33,7 @@ class AnswerFetcher extends Fetcher
 
     public function getByPollId($pollId)
     {
-        return $this->getDb()->selectAll('SELECT * FROM answer WHERE poll_id = ?',array($pollId));
+        return $this->getDb()->selectAll('SELECT * FROM answer WHERE questions_id = ?',array($pollId));
     }
 
 }

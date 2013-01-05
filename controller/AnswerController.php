@@ -6,7 +6,6 @@
  * Time: 23:53
  * To change this template use File | Settings | File Templates.
  */
-//require_once "models/AnswerFetcher.php";
 require_once "Controller.php";
 class AnswerController extends Controller
 {
@@ -15,13 +14,13 @@ class AnswerController extends Controller
 //        var_dump( AnswerFetcher::getInstance()->getById("1"));
 //        var_dump( AnswerFetcher::getInstance()->getByPollId("1"));
         $pollId=$_GET['poll'];
-        if(!isset($pollId))
-        {
-            echo"выводим все варианты голосования";
-        }
-        else
-        {
-            $pollText=InterviewFetcher::getInstance()->getById($pollId);
+//        if(!isset($pollId))
+//        {
+//            echo"выводим все варианты голосования";
+//        }
+//        else
+//        {
+            $pollText=PollFetcher::getInstance()->getById($pollId);
             if(!isset($pollText['id']))
             {
                 echo"такого опроса не существует";
@@ -29,10 +28,10 @@ class AnswerController extends Controller
             else
             {
 
-                $pollQuestion=PollFetcher::getInstance()->getByPollId($pollId);
+                $pollQuestion=QuestionsFetcher::getInstance()->getByPollId($pollId);
                 $answer=AnswerFetcher::getInstance()->getByPollId($pollId);
                 $this->render('index', array('pollText'=>$pollText,'pollQuestion'=>$pollQuestion,'answer'=>$answer));
             }
-        }
+//        }
     }
 }
