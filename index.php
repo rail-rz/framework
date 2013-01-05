@@ -11,7 +11,7 @@ require_once "Application.php";
 require_once "ComponentManager.php";
 require_once "db.php";
 require_once "models/AnswerFetcher.php";
-require_once "models/InterviewFetcher.php";
+require_once "models/QuestionsFetcher.php";
 require_once "models/PollFetcher.php";
 require_once "models/Fetcher.php";
 require_once "controller/AnswerController.php";
