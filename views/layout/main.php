@@ -10,6 +10,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script language="javascript">
+        function toggle() {
+            var ele = document.getElementById("toggleText");
+            var text = document.getElementById("displayText");
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+//                text.innerHTML = "Открыть спойлер";
+            }
+            else {
+                ele.style.display = "block";
+//                text.innerHTML = "Закрыть";
+            }
+        }
+    </script>
 
 </head>
 
