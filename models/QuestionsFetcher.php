@@ -27,11 +27,11 @@ class QuestionsFetcher extends Fetcher
 
     public function getById($id)
     {
-        return $this->getDb()->selectRow('SELECT * FROM questions WHERE id = ?', array($id));
+        return $this->getDb()->selectRow('SELECT * FROM question WHERE id = ?', array($id));
     }
 
     public function getByPollId($pollId)
     {
-        return $this->getDb()->selectAll('SELECT * FROM questions WHERE poll_id = ?',array($pollId));
+        return $this->getDb()->selectAll('SELECT * FROM question WHERE poll_id = ?',array($pollId));
     }
 }

@@ -27,7 +27,6 @@ class AnswerController extends Controller
             }
             else
             {
-
                 $pollQuestion=QuestionsFetcher::getInstance()->getByPollId($pollId);
                 $answer=AnswerFetcher::getInstance()->getByPollId($pollId);
                 $this->render('index', array('pollText'=>$pollText,'pollQuestion'=>$pollQuestion,'answer'=>$answer));
