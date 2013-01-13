@@ -14,8 +14,11 @@ require_once "models/AnswerFetcher.php";
 require_once "models/QuestionsFetcher.php";
 require_once "models/PollFetcher.php";
 require_once "models/Fetcher.php";
+require_once "controller/PollController.php";
 require_once "controller/AnswerController.php";
 require_once "controller/ErrorController.php";
+require_once "controller/AdminPollController.php";
+require_once "controller/AdminAnswerController.php";
 Application::init(
     array(
         'components' => array(
