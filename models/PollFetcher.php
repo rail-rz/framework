@@ -33,11 +33,11 @@ class PollFetcher extends Fetcher
 
     public function getByPollId($pollId)
     {
-        return $this->getDb()->selectAll('SELECT * FROM poll WHERE poll_id = ?',array($pollId));
+        return $this->getDb()->selectAll('SELECT * FROM poll WHERE id = ?',array($pollId));
     }
 
     public function getAll()
     {
-        return $this->getDb()->selectAll('SELECT*FROM poll ORDER BY id');
+        return $this->getDb()->selectAll('SELECT*FROM poll');
     }
 }
