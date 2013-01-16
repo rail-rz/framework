@@ -4,14 +4,16 @@
  * User: R2
  * Date: 10.09.12
  * Time: 17:22
- *
+ * @property db $db
+ * @property FetcherManager $fetchers
  */
-require_once"ComponentManager.php";
-//require_once"controller/TestController.php";
-//require_once"db.php";
 class Application extends ComponentManager
 {
     private  static $instance;
+
+    /**
+     * @return Application
+     */
 
     public static function getInstance()
     {
@@ -30,16 +32,6 @@ class Application extends ComponentManager
         parent::__construct($config);
     }
 
-//    public function getDb()
-//    {
-//       if(is_null($this->db))
-//            $this->db=new db($this->config["db"]["host"],$this->config["db"]["user"],$this->config["db"]["password"],$this->config["db"]["base"]);
-//       return $this->db;
-//    }
-/*
- * Метод run() обрабатывает входные массив с помощью $_GET.
- * В зависимотсти от того, какое значение пришло перенаправляет на нужную страницу
- */
     public function run()
     {
         $dir="controller/";
