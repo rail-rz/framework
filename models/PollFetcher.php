@@ -40,4 +40,9 @@ class PollFetcher extends Fetcher
     {
         return $this->getDb()->selectAll('SELECT*FROM poll');
     }
+
+    public function updateById($text,$id,$originalText)
+    {
+        return $this->getDb()->selectRow('UPDATE poll SET name = ? WHERE id = ? AND name = ?',array($text,$id,$originalText));
+    }
 }
