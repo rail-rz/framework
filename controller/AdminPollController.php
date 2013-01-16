@@ -22,7 +22,17 @@ class AdminPollController extends Controller
 
     public function actionUpdate()
     {
-        echo$_GET['id'];
+        $id=$_GET['id'];
+        $poll=PollFetcher::getInstance()->getById($id);
+        if(isset($_POST['text']) and $_POST['text']!==$poll['name'])
+        {
+            PollFetcher::getInstance()->updateById($_POST['text'],$id,$poll['name']);
+        }
+        else
+        {
+            $this->render('update', array('poll'=>$poll));
+        }
+
     }
 
     public function actionDelete()
