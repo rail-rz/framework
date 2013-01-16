@@ -5,6 +5,7 @@
  * Date: 13.01.13
  * Time: 4:55
  * To change this template use File | Settings | File Templates.
+ * @var AdminPollController $poll
  */
 ?>
 <h1>Опросники</h1>
