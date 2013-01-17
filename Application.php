@@ -33,7 +33,7 @@ class Application extends ComponentManager
     }
 
     /**
-    * @return run()
+    * @method run()
     */
 
     public function run()

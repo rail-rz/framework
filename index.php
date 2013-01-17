@@ -28,14 +28,21 @@ Application::init(
                 '__construct' => array(
                     array(
                         'components' => array(
-                        'answers' => array('class' => 'AnswerFetcher'),
-                        'poll' => array('class' => 'PollFetcher'),
-                        'questions' => array('class' => 'QuestionsFetcher')
+                            'answers' => array('class' => 'AnswerFetcher'),
+                            'poll' => array('class' => 'PollFetcher'),
+                            'questions' => array('class' => 'QuestionsFetcher')
                         )
                     )
                 )
             ),
-        'db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll')),
+            'db' => array(
+                'class' => 'db',
+                '__construct' => array(
+                    'localhost',
+                    'root',
+                    '',
+                    'poll')
+            ),
         )
     )
 );
