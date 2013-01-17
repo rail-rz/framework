@@ -11,15 +11,20 @@
 <h1>Опросники</h1>
 <p><a href="/index.php?r=adminPoll/create">Создать опрос</a> </p>
 <?php
-foreach($polls as $poll)
-{
-    echo"<div>";
-    $numberPoll=$poll['id'];
-    echo$numberPoll.".".$poll['name']."<br>";
-    echo"1.<a href='/index.php?r=adminPoll/update&id=$numberPoll'>Редактировать опрос</a><br>";
-    echo"2.<a href='/index.php?r=adminAnswer/update&poll_id=$numberPoll'>Редактировать вопросы</a><br>";
-    echo"3.<a href='/index.php?r=adminPoll/delete&id=$numberPoll'>Удалить Опрос</a><br>";
-    echo"4.<a href='/index.php?r=adminPoll/check&id=$numberPoll'>Открытый/Закрытый опросник</a><br>";
-    echo"</div><br>";
-}
+    foreach($polls as $poll){
+        $numberPoll=$poll['id'];
+?>
+<table border='1'>
+    <tr><td>
+    <div id='list'>
+        <div><?echo$numberPoll.".".$poll['name'];?></div>
+        <div>1.<a href='/index.php?r=adminPoll/update&id=<?echo$numberPoll?>'>Редактировать опрос</a></div>
+        <div>2.<a href='/index.php?r=adminAnswer/update&poll_id=<?echo$numberPoll?>'>Редактировать вопросы</a></div>
+        <div>3.<a href='/index.php?r=adminPoll/delete&id=<?echo$numberPoll?>'>Удалить Опрос</a></div>
+        <div>4.<a href='/index.php?r=adminPoll/check&id=<?echo$numberPoll?>'>Открытый/Закрытый опросник</a></div>
+    </div>
+    </td></tr>
+</table>
+<?
+    }
 ?>
