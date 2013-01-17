@@ -6,7 +6,6 @@
  * Time: 4:04
  * To change this template use File | Settings | File Templates.
  */
-require_once"Controller.php";
 class AdminPollController extends Controller
 {
     public function actionIndex()
@@ -17,16 +16,24 @@ class AdminPollController extends Controller
 
     public function actionCreate()
     {
-        echo"ok";
+        if(!isset($_POST['text']))
+        {
+            $this->render('create', array());
+        }
+        else
+        {
+            $poll = Application::getInstance()->fetchers->poll->addString($_POST['text']);
+            echo$poll;
+        }
     }
 
     public function actionUpdate()
     {
         $id=$_GET['id'];
         $poll=Application::getInstance()->fetchers->poll->getById($id);
-        if(isset($_POST['text']) and $_POST['text']!==$poll['name'])
+        if(isset($_POST['text']) and $_POST['text']!== $poll['name'])
         {
-            Application::getInstance()->fetchers->poll->updateById($_POST['text'],$id,$poll['name']);
+            Application::getInstance()->fetchers->poll->updateById($_POST['text'], $id, $poll['name']);
         }
         else
         {
