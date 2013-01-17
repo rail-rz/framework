@@ -11,8 +11,8 @@ class AdminPollController extends Controller
 {
     public function actionIndex()
     {
-        $poll=PollFetcher::getInstance()->getAll();
-        $this->render('index', array('poll'=>$poll));
+        $polls=Application::getInstance()->fetchers->poll->getAll();
+        $this->render('index', array('polls'=>$polls));
     }
 
     public function actionCreate()
@@ -23,10 +23,10 @@ class AdminPollController extends Controller
     public function actionUpdate()
     {
         $id=$_GET['id'];
-        $poll=PollFetcher::getInstance()->getById($id);
+        $poll=Application::getInstance()->fetchers->poll->getById($id);
         if(isset($_POST['text']) and $_POST['text']!==$poll['name'])
         {
-            PollFetcher::getInstance()->updateById($_POST['text'],$id,$poll['name']);
+            Application::getInstance()->fetchers->poll->updateById($_POST['text'],$id,$poll['name']);
         }
         else
         {

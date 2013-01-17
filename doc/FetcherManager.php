@@ -5,8 +5,9 @@
  * Date: 02.11.12
  * Time: 22:13
  *
- * @property AnswerFetcher $answer
+ * @property AnswerFetcher $answers
  * @property PollFetcher $poll
+ * @property QuestionsFetcher $questions
  */
 class FetcherManager extends ComponentManager
 {

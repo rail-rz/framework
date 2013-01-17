@@ -10,10 +10,10 @@ header("Content-Type: charset=utf-8");
 require_once "ComponentManager.php";
 require_once "Application.php";
 require_once "db.php";
+require_once "models/Fetcher.php";
 require_once "models/AnswerFetcher.php";
 require_once "models/QuestionsFetcher.php";
 require_once "models/PollFetcher.php";
-require_once "models/Fetcher.php";
 require_once "controller/Controller.php";
 require_once "controller/PollController.php";
 require_once "controller/AnswerController.php";
@@ -25,13 +25,15 @@ Application::init(
         'components' => array(
             'fetchers'=>array(
                 'class' => 'ComponentManager',
-                '__construct' => array(array(
-                    'components' => array(
-                        'answer' => array('class' => 'AnswerFetcher'),
+                '__construct' => array(
+                    array(
+                        'components' => array(
+                        'answers' => array('class' => 'AnswerFetcher'),
                         'poll' => array('class' => 'PollFetcher'),
                         'questions' => array('class' => 'QuestionsFetcher')
+                        )
                     )
-                ))
+                )
             ),
         'db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll')),
         )
