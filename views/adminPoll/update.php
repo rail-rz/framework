@@ -9,13 +9,12 @@
  */
 ?>
 <form action="" method="post">
-    <p>
-        <?php
-        $value=$poll['name'];
-        echo"<div id='pollNumber'><div id='pollName'>Опросник №".$poll['id']."</div>";
-//        echo"<input type='text' size='60' name='pollName' value=$value>";
-        echo"<textarea name='text' cols='60'>$value</textarea></div>"
-        ?>
-    </p>
+<?php
+    $value=$poll['name'];
+?>
+<div id='pollNumber'>
+    <div id='pollName'>Опросник №<?echo$poll['id']?></div>
+        <textarea name='text' cols='60'><?echo$value?></textarea>
+</div>
     <p><input type="submit" value="Send"></p>
 </form>
