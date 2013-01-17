@@ -35,14 +35,7 @@ Application::init(
                     )
                 )
             ),
-            'db' => array(
-                'class' => 'db',
-                '__construct' => array(
-                    'localhost',
-                    'root',
-                    '',
-                    'poll')
-            ),
+            'db' => array('class' => 'db','__construct' => array('localhost', 'root', '', 'poll')),
         )
     )
 );

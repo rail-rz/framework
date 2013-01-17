@@ -32,10 +32,6 @@ class Application extends ComponentManager
         parent::__construct($config);
     }
 
-    /**
-    * @method run()
-    */
-
     public function run()
     {
         $dir="controller/";
