@@ -3,7 +3,7 @@
 -- Server version:               5.5.25 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-01-11 03:54:53
+-- Date/time:                    2013-01-18 02:02:40
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -14,6 +14,7 @@
 DROP TABLE IF EXISTS `vote`;
 CREATE TABLE IF NOT EXISTS `vote` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `poll_id` int(11) NOT NULL,
   `answer_id` int(11) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
