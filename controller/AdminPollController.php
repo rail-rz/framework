@@ -10,8 +10,8 @@ class AdminPollController extends Controller
 {
     public function actionIndex()
     {
-        $polls=Application::getInstance()->fetchers->poll->getAll();
-        $this->render('index', array('polls'=>$polls));
+        $polls = Application::getInstance()->fetchers->poll->getAll();
+        $this->render('index', array('polls' => $polls));
     }
 
     public function actionCreate()
@@ -22,29 +22,31 @@ class AdminPollController extends Controller
         }
         else
         {
-            $poll = Application::getInstance()->fetchers->poll->addString($_POST['text']);
-            echo$poll;
+            $id = Application::getInstance()->fetchers->poll->addString($_POST['text']);
+            AdminAnswerController::actionCreate($id);
         }
     }
 
     public function actionUpdate()
     {
-        $id=$_GET['id'];
-        $poll=Application::getInstance()->fetchers->poll->getById($id);
-        if(isset($_POST['text']) and $_POST['text']!== $poll['name'])
+        $id = $_GET['id'];
+        $poll = Application::getInstance()->fetchers->poll->getById($id);
+        if(isset($_POST['text']) and $_POST['text'] !== $poll['name'])
         {
-            Application::getInstance()->fetchers->poll->updateById($_POST['text'], $id, $poll['name']);
+            Application::getInstance()->fetchers->poll->updateById($_POST['text'], $id);
+            AdminPollController::actionIndex();
         }
         else
         {
-            $this->render('update', array('poll'=>$poll));
+            $this->render('update', array('poll' => $poll));
         }
 
     }
 
     public function actionDelete()
     {
-        echo$_GET['id'];
+        Application::getInstance()->fetchers->poll->delete($_GET['id']);
+        AdminPollController::actionIndex();
     }
 
     public function actionCheck()
