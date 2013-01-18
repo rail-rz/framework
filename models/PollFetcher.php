@@ -15,11 +15,24 @@ class PollFetcher extends Fetcher
 
     public function getAll()
     {
-        return $this->getDb()->selectAll('SELECT*FROM poll');
+        return $this->getDb()->selectAll('SELECT * FROM poll');
     }
 
-    public function updateById($text,$id,$originalText)
+    public function updateById($text,$id)
     {
-        return $this->getDb()->selectRow('UPDATE poll SET name = ? WHERE id = ? AND name = ?',array($text,$id,$originalText));
+        return $this->getDb()->query('UPDATE poll SET name = ? WHERE id = ?',array($text,$id));
+    }
+
+    public function addString($text)
+    {
+         return $this->getDb()->getLastInsertId('INSERT INTO poll SET name = ?',array($text));
+    }
+
+    public function delete($pollId)
+    {
+        $this->getDb()->query('DELETE FROM poll WHERE id = ? ',array($pollId));
+        $this->getDb()->query('DELETE FROM question WHERE poll_id = ? ',array($pollId));
+        $this->getDb()->query('DELETE FROM answer WHERE poll_id = ? ',array($pollId));
+        $this->getDb()->query('DELETE FROM vote WHERE poll_id = ? ',array($pollId));
     }
 }
