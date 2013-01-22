@@ -22,8 +22,8 @@ class AdminPollController extends Controller
         }
         else
         {
-            $id = Application::getInstance()->fetchers->poll->addString($_POST['text']);
-            AdminAnswerController::actionCreate($id);
+            $poll_id = Application::getInstance()->fetchers->poll->addString($_POST['text']);
+            header("Location: /index.php?r=adminAnswer/create&poll_id=$poll_id");
         }
     }
 
@@ -34,7 +34,7 @@ class AdminPollController extends Controller
         if(isset($_POST['text']) and $_POST['text'] !== $poll['name'])
         {
             Application::getInstance()->fetchers->poll->updateById($_POST['text'], $id);
-            AdminPollController::actionIndex();
+            header("Location: /index.php?r=adminPoll/index");
         }
         else
         {
@@ -46,7 +46,7 @@ class AdminPollController extends Controller
     public function actionDelete()
     {
         Application::getInstance()->fetchers->poll->delete($_GET['id']);
-        AdminPollController::actionIndex();
+        header("Location: /index.php?r=adminPoll/index");
     }
 
     public function actionCheck()
