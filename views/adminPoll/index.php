@@ -16,7 +16,7 @@
         <td><?= $poll['id']; ?></td>
         <td><a href='/index.php?r=adminPoll/update&id=<?= $poll['id']; ?>'><?= $poll['name']; ?> </a></td>
         <td>
-            <a href='/index.php?r=adminAnswer/update&poll_id=<?= $poll['id']; ?>'>Вопросы</a>
+            <a href='/index.php?r=adminQuestion/index&poll_id=<?= $poll['id']; ?>'>Вопросы</a>
             <a href='/index.php?r=adminPoll/delete&id=<?= $poll['id']; ?>'>Удалить</a>
         </td>
     </tr>
