@@ -17,4 +17,21 @@ class QuestionsFetcher extends Fetcher
     {
         return $this->getDb()->selectAll('SELECT * FROM question WHERE poll_id = ?',array($pollId));
     }
+
+    public function addString($text, $pollId)
+    {
+        return $this->getDb()->getLastInsertId('INSERT INTO question SET question = ?, poll_id = ?',array($text, $pollId));
+    }
+
+    public function updateById($text,$id)
+    {
+        return $this->getDb()->query('UPDATE question SET question = ? WHERE id = ?',array($text,$id));
+    }
+
+    public function delete($questionId)
+    {
+        $this->getDb()->query('DELETE FROM question WHERE id = ? ',array($questionId));
+        $this->getDb()->query('DELETE FROM answer WHERE question_id = ? ',array($questionId));
+    }
+
 }
