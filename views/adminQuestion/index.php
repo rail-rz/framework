@@ -18,7 +18,7 @@
         <td><?= ++$key; ?></td>
         <td><a href='/index.php?r=adminQuestion/update&id=<?= $question['id']; ?>'><?= $question['question']; ?> </a></td>
         <td>
-            <a href='/index.php?r=adminAnswer/create&question_id=<?= $question['id']; ?>'>Вопросы</a>
+            <a href='/index.php?r=adminAnswer/index&question_id=<?= $question['id']; ?>'>Ответы</a>
             <a href='/index.php?r=adminQuestion/delete&id=<?= $question['id']; ?>'>Удалить</a>
         </td>
     </tr>
