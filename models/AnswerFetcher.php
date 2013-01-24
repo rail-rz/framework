@@ -13,9 +13,26 @@ class AnswerFetcher extends Fetcher
         return $this->getDb()->selectRow('SELECT * FROM answer WHERE id = ?', array($id));
     }
 
-    public function getByPollId($pollId)
+    public function getByQuestionId($questionId)
     {
-        return $this->getDb()->selectAll('SELECT * FROM answer WHERE poll_id = ?',array($pollId));
+        return $this->getDb()->selectAll('SELECT * FROM answer WHERE question_id = ?',array($questionId));
+    }
+
+    public function addSting($text, $questionId, $pollId)
+    {
+        return $this->getDb()->query('INSERT INTO answer SET answer = ?, question_id = ?, poll_id = ?',
+            array( $text, $questionId, $pollId));
+    }
+
+    public function updateById($text,$id)
+    {
+        return $this->getDb()->query('UPDATE answer SET answer = ? WHERE id = ?',array($text,$id));
+    }
+
+    public function deleteById($id)
+    {
+        $this->getDb()->query('DELETE FROM answer WHERE id = ? ',array($id));
+        $this->getDb()->query('DELETE FROM vote WHERE answer_id = ? ',array($id));
     }
 
 }
