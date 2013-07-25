@@ -25,7 +25,7 @@ class PollFetcher extends Fetcher
 
     public function addString($text)
     {
-         return $this->getDb()->getLastInsertId('INSERT INTO poll SET name = ?',array($text));
+         return $this->getDb()->getLastInsertId('INSERT INTO poll SET name = ? , open = "0"',array($text));
     }
 
     public function delete($pollId)
