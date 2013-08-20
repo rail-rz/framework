@@ -6,7 +6,6 @@
  * Time: 0:37
  * To change this template use File | Settings | File Templates.
  */
-require_once"Controller.php";
 class PollController extends Controller
 {
     public function actionCreate()
@@ -16,8 +15,15 @@ class PollController extends Controller
 
     public function actionIndex()
     {
-        $poll=PollFetcher::getInstance()->getAll();
-        $this->render('index', array('poll'=>$poll));
+        $this->render('index');
+    }
+
+    public function actionSendPoll()
+    {
+        $poll= Application::getInstance()->fetchers->poll->getByOpenAttribute();
+        $questions = Application::getInstance()->fetchers->questions->getByPollId($poll['id']);
+        $answers = Application::getInstance()->fetchers->answers->getByPollId($poll['id']);
+        $this->render('sendPool', array('poll'=>$poll, 'questions' => $questions, 'answers' => $answers ));
     }
 
 }
