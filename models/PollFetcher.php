@@ -13,6 +13,11 @@ class PollFetcher extends Fetcher
         return $this->getDb()->selectRow('SELECT * FROM poll WHERE id = ?', array($id));
     }
 
+    public function getByOpenAttribute()
+    {
+        return $this->getDb()->selectRow('SELECT * FROM poll WHERE open = "1"');
+    }
+
     public function getAll()
     {
         return $this->getDb()->selectAll('SELECT * FROM poll');
