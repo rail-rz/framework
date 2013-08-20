@@ -51,13 +51,13 @@
 <div class="container">
 
     <div id="header">
-        <div id="logo">Header</div>
+        <div id="logo"><h1>Header</h1></div>
     </div><!-- header -->
 
     <?=$content ;?>
 
     <div id="footer">
-        <div>Footer</div>
+        <div><h1>Footer</h1></div>
     </div><!-- footer -->
 
 </div><!--page>
