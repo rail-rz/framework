@@ -16,6 +16,9 @@
         <td><?= $poll['id']; ?></td>
         <td><a href='/index.php?r=adminPoll/update&id=<?= $poll['id']; ?>'><?= $poll['name']; ?> </a></td>
         <td>
+            <?php echo ($poll['open'] == 0)? 'Close' : 'Open'; ?>
+        </td>
+        <td>
             <a href='/index.php?r=adminQuestion/index&poll_id=<?= $poll['id']; ?>'>Вопросы</a>
             <a href='/index.php?r=adminPoll/delete&id=<?= $poll['id']; ?>'>Удалить</a>
         </td>
