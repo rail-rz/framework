@@ -18,6 +18,11 @@ class AnswerFetcher extends Fetcher
         return $this->getDb()->selectAll('SELECT * FROM answer WHERE question_id = ?',array($questionId));
     }
 
+    public function getByPollId($pollId)
+    {
+        return $this->getDb()->selectAll('SELECT * FROM answer WHERE poll_id = ?',array($pollId));
+    }
+
     public function addSting($text, $questionId, $pollId)
     {
         return $this->getDb()->query('INSERT INTO answer SET answer = ?, question_id = ?, poll_id = ?',
