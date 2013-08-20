@@ -64,5 +64,9 @@ class Application extends ComponentManager
                 $controller->actionIndex();
             }
         }
+        else
+        {
+            header("Location: /index.php?r=poll/index");
+        }
     }
 }
