@@ -12,6 +12,7 @@
  <form method="post" action="">
     <?php foreach($questions as $question)
     {
+        echo '<div>';
         echo "<p>".$question['question']."</p>";
         //далее идет очень грубая работа, ее лучше уростить
         foreach($answers as $answer)
@@ -19,7 +20,7 @@
             if($question['id'] == $answer['question_id'])
                 echo '<input type="radio" name="answer['.$question['id'].']" value="'.$answer['id'].'">'.$answer['answer'];
         }
+        echo '</div>';
     }?>
      <input type="submit" value="save" />
  </form>
-<?php var_dump($_POST);?>
