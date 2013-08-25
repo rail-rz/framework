@@ -8,6 +8,7 @@
  * @property AnswerFetcher $answers
  * @property PollFetcher $poll
  * @property QuestionsFetcher $questions
+ * @property VoteFetcher $vote
  */
 class FetcherManager extends ComponentManager
 {

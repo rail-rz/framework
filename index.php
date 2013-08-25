@@ -11,12 +11,14 @@ require_once "ComponentManager.php";
 require_once "Application.php";
 require_once "db.php";
 require_once "models/Fetcher.php";
+require_once "models/VoteFetcher.php";
 require_once "models/AnswerFetcher.php";
 require_once "models/QuestionsFetcher.php";
 require_once "models/PollFetcher.php";
 require_once "controller/Controller.php";
 require_once "controller/PollController.php";
 require_once "controller/AnswerController.php";
+require_once "controller/VoteController.php";
 require_once "controller/ErrorController.php";
 require_once "controller/AdminPollController.php";
 require_once "controller/AdminAnswerController.php";
@@ -30,7 +32,8 @@ Application::init(
                         'components' => array(
                             'answers' => array('class' => 'AnswerFetcher'),
                             'poll' => array('class' => 'PollFetcher'),
-                            'questions' => array('class' => 'QuestionsFetcher')
+                            'questions' => array('class' => 'QuestionsFetcher'),
+                            'vote' => array( 'class' => 'VoteFetcher'),
                         )
                     )
                 )
